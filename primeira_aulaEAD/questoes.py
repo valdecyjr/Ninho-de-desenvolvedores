@@ -2,6 +2,12 @@ from platform import system
 from os import system as st
 
 
+def endfunc():
+    print('\n')
+    input('Digite "Enter" para continuar')
+    limpar()
+
+
 def limpar():
     if system() == 'Linux':
         st('clear')
@@ -9,12 +15,15 @@ def limpar():
         st('cls')
 
 
-def mostrar(func):
-    print(func.__doc__)
-    input('Aperte Enter para continuar')
-    limpar()
+def exibir(func):  # closure
+    def execucao(*args):
+        limpar()
+        print(f'Questão: {func.__doc__}')
+        return func(*args)
+    return execucao
 
 
+@exibir
 def questao1():
     """
     Fazer um programa que imprima a média aritmética dos
@@ -26,12 +35,14 @@ def questao1():
     media2 = sum(notas2)/3
     somadasmedias = media1 + media2
 
-    print(f"""As notas são: {notas1}, a media dessas notas é:{media1}
+    print(f"""Respostas:
+As notas são: {notas1}, a media dessas notas é:{media1}
 As notas são {notas2}, a media dessas notas é: {media2}
 A soma das medias é: {somadasmedias}""")
-    input('Aperte "Enter" para continuar')
+    endfunc()
 
 
+@exibir
 def questao2():
     """
     Ler um ano de nascimento e ano atual. Imprimir a idade da
@@ -44,11 +55,12 @@ def questao2():
     nascimento = int(input('Somente o ano que você nasceu(No formato yyyy): '))
     atual = int(input('Digite o valor do ano atual(No formato yyyy): '))
 
-    print(f'{nome}, sua entrada é permitida' if atual-nascimento >= 18
-          else f'{nome}, sua entrada é negada')
-    input('Aperte "Enter" para continuar')
+    print(f'Resposta:\n{nome}, sua entrada é permitida' if atual-nascimento >= 18
+          else f'Resposta:\n {nome}, sua entrada é negada')
+    endfunc()
 
 
+@exibir
 def questao3():
     """
     Solicitar salário, prestação. Se prestação for maior que 20%
@@ -58,11 +70,12 @@ def questao3():
     salario = float(input('Digite o salário: '))
     prestacao = float(input('Digite a prestacao: '))
 
-    print('Empréstimo pode ser concedido' if prestacao <= salario * 0.2
-          else 'Empréstimo não pode ser concedido')
-    input('Aperte "Enter" para continuar')
+    print('Resposta:\nEmpréstimo pode ser concedido' if prestacao <= salario * 0.2
+          else 'Resposta:\nEmpréstimo não pode ser concedido')
+    endfunc()
 
 
+@exibir
 def questao4():
     """
     Determinar o fatorial de 6, 5, 4. Determinar valores a partir
@@ -70,49 +83,54 @@ def questao4():
     """
     fatorial = 1
     numeros = [6, 5, 4]
+    print('Resposta:')
     for n in numeros:
         for i in range(1, n+1):
             fatorial *= i
 
         print(f'fatorial de {n} é : {fatorial}')
         fatorial = 1
-    input('Aperte "Enter" para continuar')
+    endfunc()
 
 
+@exibir
 def questao5():
     """
     Informar um número e imprimir se é par ou
     ímpar.
     """
     numero = int(input('Digite um numero inteiro: '))
-    print('par' if numero % 2 == 0
-          else 'impar')
-    input('Aperte "Enter" para continuar')
+    print('Resposta:\npar' if numero % 2 == 0
+          else 'Resposta:\nimpar')
+    endfunc()
 
 
+@exibir
 def questao6():
     """
     Ler 1 número. Se positivo, imprimir raiz quadrada
     senão o quadrado do número.
     """
     x = float(input('Digite um numero: '))
-    print(f'{x ** 0.5}' if x > 0
-          else f'{x ** 2}')
-    input('Aperte "Enter" para continuar')
+    print(f'Resposta:\n{x ** 0.5}' if x > 0
+          else f'Resposta\n{x ** 2}')
+    endfunc()
 
 
+@exibir
 def questao7():
     """
     Ler um número e imprimir igual a 20, menor que
     20, maior que 20.
     """
     numero = int(input('Digite um numero: '))
-    print('igual a 20' if numero == 20
-          else ('menor que 20' if numero < 20
-                else 'maior que 20'))
-    input('Aperte "Enter" para continuar')
+    print('Resposta:\nigual a 20' if numero == 20
+          else ('Resposta:\nmenor que 20' if numero < 20
+                else 'Resposta:\nmaior que 20'))
+    endfunc()
 
 
+@exibir
 def questao8():
     """
     Crie um algoritmo que receba 3 números e
@@ -122,10 +140,11 @@ def questao8():
     while len(numero) < 3:
         numero.append(int(input(f'Digite um o {len(numero) + 1}º numero: ')))
     numero.sort(reverse=True)
-    print(numero[0])
-    input('Aperte "Enter" para continuar')
+    print(f'Resposta:\nO maior número é: {numero[0]}')
+    endfunc()
 
 
+@exibir
 def questao9():
     """
     Faça um algoritmo que leia dois números nas variáveis
@@ -133,13 +152,14 @@ def questao9():
     é, se os dados lidos forem NumA = 5 e NumB = 9, por exemplo,
     devem ser impressos na ordem NumA = 9 e NumB = 5.
     """
-    numA = int(input('Digite o 1º numero: '))
-    numB = int(input('Digite o 2º numero: '))
+    numA = int(input('Digite o NumA: '))
+    numB = int(input('Digite o NumB: '))
     numA, numB = numB, numA
-    print(f'{numA} \n{numB}')
-    input('Aperte "Enter" para continuar')
+    print(f'NumA: {numA} \nNumB: {numB}')
+    endfunc()
 
 
+@exibir
 def questao10():
     """
     Faça um algoritmo que leia dois números e indique se são
@@ -148,41 +168,21 @@ def questao10():
     """
     numb1 = int(input('Digite um numero: '))
     numb2 = int(input('Digite um numero: '))
-    print('São iguais' if numb1 == numb2
+    print('Resposta:\nSão iguais' if numb1 == numb2
           else 'São diferentes')
     print(f'{numb1} {numb2}' if numb1 > numb2
           else f'{numb2} {numb1}')
-    input('Aperte "Enter" para continuar')
+    endfunc()
 
 
 if __name__ == '__main__':
-    mostrar(questao1)
     questao1()
-    limpar()
-    mostrar(questao2)
     questao2()
-    limpar()
-    mostrar(questao3)
     questao3()
-    limpar()
-    mostrar(questao4)
     questao4()
-    limpar()
-    mostrar(questao5)
     questao5()
-    limpar()
-    mostrar(questao6)
     questao6()
-    limpar()
-    mostrar(questao7)
     questao7()
-    limpar()
-    mostrar(questao8)
     questao8()
-    limpar()
-    mostrar(questao9)
     questao9()
-    limpar()
-    mostrar(questao10)
     questao10()
-    limpar()
