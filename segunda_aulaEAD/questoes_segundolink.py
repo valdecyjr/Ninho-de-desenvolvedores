@@ -163,7 +163,7 @@ Questão: Write a Python program to get the Fibonacci series between 0 to 50. Go
 Every next number is found by adding up the two numbers before it.
 Expected Output : 1 1 2 3 5 8 13 21 34
     """
-    i,p,a,n = 0, 0, 0, 0
+    i = 0
     lista = []
     while i < 50:
         if i == 0:
@@ -172,12 +172,8 @@ Expected Output : 1 1 2 3 5 8 13 21 34
         elif i == 1 and len(lista) < 2:
             lista.append(i)
             i += 1
-        else:
-            n = len(lista)
-            p = lista[n-2]
-            a = lista[n-1]
-            i = p+a
-            lista.append(i)
+        else:  
+            lista.append(lista[len(lista)-2]+lista[len(lista)-1])
     for n in lista:
         print(n, end = ' ')
     print('')
