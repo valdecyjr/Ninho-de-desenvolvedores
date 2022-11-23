@@ -154,12 +154,41 @@ Sample List : datalist = [1452, 11.23, 1+2j, True, 'w3resource', (0, -1), [5, 12
     for item in datalist:
         print(f'O item {item}, é do tipo {type(item)}')
 
+@exibir
+def questao9():
+    """
+Questão: Write a Python program to get the Fibonacci series between 0 to 50. Go to the editor
+    Note : The Fibonacci Sequence is the series of numbers :
+    0, 1, 1, 2, 3, 5, 8, 13, 21, ....
+Every next number is found by adding up the two numbers before it.
+Expected Output : 1 1 2 3 5 8 13 21 34
+    """
+    i,p,a,n = 0, 0, 0, 0
+    lista = []
+    while i < 50:
+        if i == 0:
+            lista.append(i)
+            i+= 1
+        elif i == 1 and len(lista) < 2:
+            lista.append(i)
+            i += 1
+        else:
+            n = len(lista)
+            p = lista[n-2]
+            a = lista[n-1]
+            i = p+a
+            lista.append(i)
+    for n in lista:
+        print(n, end = ' ')
+    print('')
+
 
 if __name__ == "__main__":
-    # questao1() 
-    # questao2()
-    # questao3()
-    # questao4()
-    # questao5()
-    # questao6()
+    questao1() 
+    questao2()
+    questao3()
+    questao4()
+    questao5()
+    questao6()
     questao7()
+    questao9()
