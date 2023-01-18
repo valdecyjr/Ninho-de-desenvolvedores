@@ -1,0 +1,72 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "mapa1.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "file.lastUsedOpenFilter": "Todos os Arquivos (*)",
+    "fileStates": {
+        "casa1.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1.5
+        },
+        "imageedit_1_2161956414.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "imoveis.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "mapa1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 266,
+                "y": 201.99999999999997
+            }
+        },
+        "tileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        }
+    },
+    "last.exportedFilePath": "C:/Users/valde/OneDrive/Área de Trabalho/poketeste/imgs/mapas",
+    "last.imagePath": "C:/Users/valde/OneDrive/Área de Trabalho/poketeste/imgs/tileset",
+    "last.worldFilePath": "C:/Users/valde/OneDrive/Documentos/mapa",
+    "loadedWorlds": [
+        "C:/Users/valde/OneDrive/Documentos/mapa/inicio.world"
+    ],
+    "map.fixedSize": true,
+    "map.lastUsedExportFilter": "Arquivos CSV (*.csv)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "mapa1.tmx",
+        "tileset.tsx",
+        "casa1.tsx"
+    ],
+    "project": "sem título.tiled-project",
+    "recentFiles": [
+        "casa1.tsx",
+        "tileset.tsx",
+        "mapa1.tmx",
+        "imoveis.tsx",
+        "imageedit_1_2161956414.tsx"
+    ],
+    "resizeMap.removeObjects": false,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 0
+}
